@@ -32,7 +32,8 @@ stages:
     steps:
     - task: NodeTool@0
       inputs:
-        versionSpec: '10.x'
+        versionSource: 'spec'
+        versionSpec: '20.x'
       displayName: 'Install Node.js'
 
     - script: |
@@ -43,6 +44,7 @@ stages:
       displayName: 'Build extensions'
 
     - script: |
+        cd qrCodeGenerator
         npm install
         npm run build --if-present
         npm run test --if-present
