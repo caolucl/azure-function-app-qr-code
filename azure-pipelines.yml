@@ -63,7 +63,7 @@ stages:
         archiveFile: '$(Build.ArtifactStagingDirectory)/qrCodeGenerator/$(Build.BuildId).zip'
         replaceExistingArchive: true
 
-    - upload: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
+    - upload: $(Build.ArtifactStagingDirectory)/qrCodeGenerator/$(Build.BuildId).zip
       artifact: drop
 
 - stage: Deploy
