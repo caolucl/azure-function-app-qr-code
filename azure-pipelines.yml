@@ -76,10 +76,11 @@ stages:
       runOnce:
         deploy:
           steps:
-          - task: AzureFunctionApp@1
+          - task: AzureFunctionApp@2
             displayName: 'Azure Functions App Deploy: lcao-dev-1-func'
             inputs:
-              azureSubscription: '$(azureSubscription)'
-              appType: functionAppLinux
-              appName: $(functionAppName)
+              connectedServiceNameARM: '$(azureSubscription)'
+              appType: 'functionAppLinux'
+              appName: '$(functionAppName)'
               package: '$(Pipeline.Workspace)/drop/$(Build.BuildId).zip'
+              deploymentMethod: 'zipDeploy'
